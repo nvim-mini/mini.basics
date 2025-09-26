@@ -1,8 +1,8 @@
-<div align="center"> <img src="https://github.com/nvim-mini/assets/blob/main/logo-2/logo-basics_readme.png" alt="mini.basics"/> </div>
+<p align="center"> <img src="https://github.com/nvim-mini/assets/blob/main/logo-2/logo-basics_readme.png?raw=true" alt="mini.basics" style="max-width:100%;border:solid 2px"/> </p>
 
 ### Common configuration presets
 
-See more details in [Features](#features) and [help file](doc/mini-basics.txt).
+See more details in [Features](#features) and [Documentation](doc/mini-basics.txt).
 
 ---
 
@@ -21,16 +21,18 @@ If you want to help this project grow but don't know where to start, check out [
 
 ## Demo
 
+<!-- Demo source: https://github.com/nvim-mini/assets/blob/main/demo/demo-basics.mp4 -->
 https://user-images.githubusercontent.com/24854248/215277747-c0dea3eb-e8f7-4550-85ce-200b111fff55.mp4
 
 ## Features
 
-- Presets for common options. It will only change option if it wasn't manually set before. See more in help file under `MiniBasics.config.options` tag.
-- Presets for common mappings. It will only add a mapping if it wasn't manually created before. See more in help file under `MiniBasics.config.mappings` tag.
-- Presets for common autocommands. See more in help file under `MiniBasics.config.autocommands` tag.
+- Presets for common options. It will only change option if it wasn't manually set before. See `:h MiniBasics.config.options` for more details.
+- Presets for common mappings. It will only add a mapping if it wasn't manually created before. See `:h MiniBasics.config.mappings` for more details.
+- Presets for common autocommands. See `:h MiniBasics.config.autocommands` for more details.
 - Reverse compatibility is a high priority. Any decision to change already present behavior will be made with great care.
 
 Notes:
+
 - Main goal of this module is to provide a relatively easier way for new-ish Neovim users to have better "works out of the box" experience while having documented relevant options/mappings/autocommands to study. It is based partially on survey among Neovim users and partially is coming from personal preferences.
 
     However, more seasoned users almost surely will find something useful.
@@ -50,90 +52,65 @@ Here are code snippets for some common installation methods (use only one):
 
 <details>
 <summary>With <a href="https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-deps.md">mini.deps</a></summary>
-<table>
-    <thead>
-        <tr>
-            <th>Github repo</th>
-            <th>Branch</th> <th>Code snippet</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2>'mini.nvim' library</td> <td>Main</td> <td rowspan=2><i>Follow recommended 'mini.deps' installation</i></td>
-        </tr>
-        <tr>
-            <td>Stable</td>
-        </tr>
-        <tr>
-            <td rowspan=2>Standalone plugin</td> <td>Main</td> <td><code>add('nvim-mini/mini.basics')</code></td>
-        </tr>
-        <tr>
-            <td>Stable</td> <td><code>add({ source = 'nvim-mini/mini.basics', checkout = 'stable' })</code></td>
-        </tr>
-    </tbody>
-</table>
+
+- 'mini.nvim' library:
+
+    | Branch | Code snippet                                  |
+    |--------|-----------------------------------------------|
+    | Main   | *Follow recommended ‘mini.deps’ installation* |
+    | Stable | *Follow recommended ‘mini.deps’ installation* |
+
+- Standalone plugin:
+
+    | Branch | Code snippet                                                     |
+    |--------|------------------------------------------------------------------|
+    | Main   | `add(‘nvim-mini/mini.basics’)`                                   |
+    | Stable | `add({ source = ‘nvim-mini/mini.basics’, checkout = ‘stable’ })` |
+
 </details>
 
 <details>
 <summary>With <a href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></summary>
-<table>
-    <thead>
-        <tr>
-            <th>Github repo</th>
-            <th>Branch</th> <th>Code snippet</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2>'mini.nvim' library</td>
-            <td>Main</td> <td><code>{ 'nvim-mini/mini.nvim', version = false },</code></td>
-        </tr>
-        <tr>
-            <td>Stable</td> <td><code>{ 'nvim-mini/mini.nvim', version = '*' },</code></td>
-        </tr>
-        <tr>
-            <td rowspan=2>Standalone plugin</td>
-            <td>Main</td> <td><code>{ 'nvim-mini/mini.basics', version = false },</code></td>
-        </tr>
-        <tr>
-            <td>Stable</td> <td><code>{ 'nvim-mini/mini.basics', version = '*' },</code></td>
-        </tr>
-    </tbody>
-</table>
+
+- 'mini.nvim' library:
+
+    | Branch | Code snippet                                  |
+    |--------|-----------------------------------------------|
+    | Main   | `{ 'nvim-mini/mini.nvim', version = false },` |
+    | Stable | `{ 'nvim-mini/mini.nvim', version = '*' },`   |
+
+- Standalone plugin:
+
+    | Branch | Code snippet                                    |
+    |--------|-------------------------------------------------|
+    | Main   | `{ 'nvim-mini/mini.basics', version = false },` |
+    | Stable | `{ 'nvim-mini/mini.basics', version = '*' },`   |
+
 </details>
 
 <details>
 <summary>With <a href="https://github.com/junegunn/vim-plug">junegunn/vim-plug</a></summary>
-<table>
-    <thead>
-        <tr>
-            <th>Github repo</th>
-            <th>Branch</th> <th>Code snippet</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2>'mini.nvim' library</td>
-            <td>Main</td> <td><code>Plug 'nvim-mini/mini.nvim'</code></td>
-        </tr>
-        <tr>
-            <td>Stable</td> <td><code>Plug 'nvim-mini/mini.nvim', { 'branch': 'stable' }</code></td>
-        </tr>
-        <tr>
-            <td rowspan=2>Standalone plugin</td> <td>Main</td> <td><code>Plug 'nvim-mini/mini.basics'</code></td>
-        </tr>
-        <tr>
-            <td>Stable</td> <td><code>Plug 'nvim-mini/mini.basics', { 'branch': 'stable' }</code></td>
-        </tr>
-    </tbody>
-</table>
-</details>
 
-<br>
+- 'mini.nvim' library:
+
+    | Branch | Code snippet                                         |
+    |--------|------------------------------------------------------|
+    | Main   | `Plug 'nvim-mini/mini.nvim'`                         |
+    | Stable | `Plug 'nvim-mini/mini.nvim', { 'branch': 'stable' }` |
+
+- Standalone plugin:
+
+    | Branch | Code snippet                                           |
+    |--------|--------------------------------------------------------|
+    | Main   | `Plug 'nvim-mini/mini.basics'`                         |
+    | Stable | `Plug 'nvim-mini/mini.basics', { 'branch': 'stable' }` |
+
+</details>
 
 **Important**: don't forget to call `require('mini.basics').setup()` to enable its functionality.
 
 **Note**: if you are on Windows, there might be problems with too long file paths (like `error: unable to create file <some file name>: Filename too long`). Try doing one of the following:
+
 - Enable corresponding git global config value: `git config --system core.longpaths true`. Then try to reinstall.
 - Install plugin in other place with shorter path.
 
