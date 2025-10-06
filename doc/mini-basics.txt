@@ -188,7 +188,7 @@ List of affected options:
 ## options.win_borders ~
 
 The `config.options.win_borders` updates |'fillchars'| to have a consistent set
-of characters for window border (`vert`, `horiz`, etc.).
+of characters for window border (`vert`, `horiz`, `msgsep`, etc.).
 
 Available values:
 - `'bold'` - bold lines.
