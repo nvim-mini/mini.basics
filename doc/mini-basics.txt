@@ -83,7 +83,8 @@ Defaults ~
       extra_ui = false,
 
       -- Presets for window borders ('single', 'double', ...)
-      win_borders = 'default',
+      -- Default 'auto' infers from 'winborder' option
+      win_borders = 'auto',
     },
 
     -- Mappings. Set field to `false` to disable.
@@ -191,6 +192,7 @@ The `config.options.win_borders` updates |'fillchars'| to have a consistent set
 of characters for window border (`vert`, `horiz`, `msgsep`, etc.).
 
 Available values:
+- `'auto'` - infer from |'winborder'|. On Neovim<0.11 do nothing.
 - `'bold'` - bold lines.
 - `'dot'` - dot in every cell.
 - `'double'` - double line.

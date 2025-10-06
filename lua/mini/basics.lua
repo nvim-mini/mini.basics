@@ -162,6 +162,7 @@ end
 --- of characters for window border (`vert`, `horiz`, `msgsep`, etc.).
 ---
 --- Available values:
+--- - `'auto'` - infer from |'winborder'|. On Neovim<0.11 do nothing.
 --- - `'bold'` - bold lines.
 --- - `'dot'` - dot in every cell.
 --- - `'double'` - double line.
@@ -322,7 +323,8 @@ MiniBasics.config = {
     extra_ui = false,
 
     -- Presets for window borders ('single', 'double', ...)
-    win_borders = 'default',
+    -- Default 'auto' infers from 'winborder' option
+    win_borders = 'auto',
   },
 
   -- Mappings. Set field to `false` to disable.
@@ -492,10 +494,13 @@ H.apply_options = function(config)
   end
 
   -- Use some common window borders presets
-  local border_chars = H.win_borders_fillchars[config.options.win_borders]
-  if border_chars ~= nil then
-    vim.opt.fillchars:append(border_chars)
+  local win_borders = config.options.win_borders
+  if win_borders == 'auto' and vim.fn.has('nvim-0.11') == 1 then
+    local option_value = vim.o.winborder
+    win_borders = H.winborder_map[option_value] or option_value
   end
+  local border_chars = H.win_borders_fillchars[win_borders]
+  if border_chars ~= nil then vim.opt.fillchars:append(border_chars) end
 end
 
 H.vim_o = setmetatable({}, {
@@ -524,6 +529,7 @@ H.win_borders_fillchars = {
   single = 'vert:│,horiz:─,horizdown:┬,horizup:┴,verthoriz:┼,vertleft:┤,vertright:├,msgsep:─',
   solid  = 'vert: ,horiz: ,horizdown: ,horizup: ,verthoriz: ,vertleft: ,vertright: ,msgsep: ',
 }
+H.winborder_map = { none = 'solid', rounded = 'single', shadow = 'solid' }
 
 -- Mappings -------------------------------------------------------------------
 --stylua: ignore
